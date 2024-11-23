@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Ropa - Productos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <header>
@@ -17,7 +17,13 @@
             </ul>
         </nav>
     </header>
-
+    <div id="carrito">
+        <h2>Carrito de Compras</h2>
+        <div id="carrito-contenido">
+            <p>El carrito está vacío.</p>
+        </div>
+    </div>
+    
     <main>
         <h2>Categorías</h2>
         <ul class="categorias">
@@ -27,35 +33,32 @@
             <li><a href="#bebe">Bebés</a></li>
         </ul>
 
+        <!-- Secciones vacías donde los productos serán cargados dinámicamente -->
         <section id="dama">
             <h2>Ropa para Dama</h2>
-            <div class="productos-grid">
-                <div class="producto">
-                    <img src="https://images.unsplash.com/photo-1618354690043-3bcd5c9e9d58" alt="Vestido Floral">
-                    <h3>Vestido Floral</h3>
-                    <p>$35.00</p>
-                    <button>Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="https://images.unsplash.com/photo-1618354693078-472b11b1a6f7" alt="Blusa Casual">
-                    <h3>Blusa Casual</h3>
-                    <p>$20.00</p>
-                    <button>Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="https://images.unsplash.com/photo-1593031861430-2a6cb7e51084" alt="Pantalones Elegantes">
-                    <h3>Pantalones Elegantes</h3>
-                    <p>$40.00</p>
-                    <button>Agregar al carrito</button>
-                </div>
-            </div>
+            <div class="productos-grid" id="productos-dama"></div>
         </section>
 
-        <!-- Similar secciones para caballero, niños, bebés -->
+        <section id="caballero">
+            <h2>Ropa para Caballero</h2>
+            <div class="productos-grid" id="productos-caballero"></div>
+        </section>
+
+        <section id="ninos">
+            <h2>Ropa para Niños</h2>
+            <div class="productos-grid" id="productos-ninos"></div>
+        </section>
+
+        <section id="bebe">
+            <h2>Ropa para Bebés</h2>
+            <div class="productos-grid" id="productos-bebe"></div>
+        </section>
     </main>
 
     <footer>
         <p>© 2024 Tienda de Ropa. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="/assets/js/productos.js"></script>
 </body>
 </html>

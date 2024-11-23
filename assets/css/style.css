@@ -1,8 +1,12 @@
+/* General */
 body {
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -10,34 +14,82 @@ header {
     color: #fff;
     padding: 1em 0;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
     margin: 0;
+    font-size: 2rem;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
     justify-content: center;
+    padding: 0;
+    margin: 0;
     gap: 15px;
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
+nav ul li a:hover {
+    color: #f4a261;
+}
+
+.buscador {
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-left: 20px;
+}
+
+/* Main Content */
 main {
+    flex: 1;
     padding: 20px;
 }
 
+/* Categorías */
+.categorias {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.categorias li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.categorias li a:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Productos */
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -51,6 +103,11 @@ main {
     padding: 15px;
     text-align: center;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: scale(1.05);
 }
 
 .producto img {
@@ -59,9 +116,221 @@ main {
     border-radius: 5px;
 }
 
-footer {
-    text-align: center;
+.producto h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.producto p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.producto button {
+    padding: 10px 20px;
     background-color: #333;
     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.producto button:hover {
+    background-color: #555;
+}
+
+/* Sección de Contacto */
+.contacto {
+    text-align: center;
+    padding: 20px;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
     padding: 10px;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .categorias li a {
+        padding: 8px 10px;
+    }
+
+    .producto {
+        padding: 10px;
+    }
+
+    .producto h3 {
+        font-size: 1rem;
+    }
+
+    .producto button {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .buscador {
+        font-size: 0.9rem;
+    }
+
+    .producto h3 {
+        font-size: 0.9rem;
+    }
+
+    .producto p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Formulario de Contacto */
+.contacto {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contacto h2 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+}
+
+.contacto label {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.contacto input, .contacto textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.contacto input:focus, .contacto textarea:focus {
+    border-color: #f4a261;
+    outline: none;
+}
+
+.contacto button {
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #f4a261;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contacto button:hover {
+    background-color: #e07b4f;
+}
+
+.contacto .informacion-contacto {
+    text-align: center;
+}
+
+.contacto .informacion-contacto h3 {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    color: #333;
+}
+
+.contacto .informacion-contacto ul {
+    list-style: none;
+    padding: 0;
+    color: #555;
+}
+
+.contacto .informacion-contacto ul li {
+    margin-bottom: 10px;
+}
+
+/* Sección de Perfil */
+.perfil {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.perfil h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
