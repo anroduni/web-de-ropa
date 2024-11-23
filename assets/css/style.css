@@ -154,13 +154,7 @@ main {
     gap: 20px;
 }
 
-.foto-perfil {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
+
 
 .info p {
     font-size: 1.2rem;
@@ -308,14 +302,6 @@ footer {
     margin-bottom: 20px;
 }
 
-.foto-perfil {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 .info p {
     font-size: 1.2rem;
@@ -333,4 +319,110 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+#carrito {
+    position: fixed; /* Hace que permanezca fijo en la pantalla */
+    top: 50%; /* Centrado verticalmente */
+    right: 0; /* Pegado al borde derecho */
+    transform: translateY(-50%); /* Ajusta el centrado vertical */
+    width: 250px; /* Ajusta el ancho del carrito */
+    background-color: #f8f9fa; /* Color de fondo */
+    box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    padding: 15px;
+    border-radius: 8px 0 0 8px; /* Bordes redondeados en la izquierda */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+#carrito h2 {
+    margin-top: 0; /* Elimina el margen superior del título */
+}
+
+#carrito button {
+    width: 100%; /* Botón que ocupa todo el ancho */
+    background-color: #007bff; /* Azul llamativo */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#carrito button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+
+#carrito-contenido p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+
+#ir-al-carrito {
+    position: relative; /* Cambiado a relativo para ajustarse al contenedor del carrito */
+    display: block; /* Asegura que ocupe el ancho disponible */
+    margin: 15px auto 0; /* Centra el botón horizontalmente y le da un margen superior */
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff; /* Azul llamativo, consistente con el carrito */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center; /* Centra el texto dentro del botón */
+}
+
+#ir-al-carrito:hover {
+    background-color: #0056b3; /* Azul más oscuro para el hover */
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+
+/* Imagen del carrito vacío */
+.empty-cart-img {
+    width: 50%; /* Media pantalla */
+    max-width: 500px; /* Tamaño máximo para pantallas grandes */
+    margin: 0 auto;
+    display: block;
+}
+
+/* Centrado del contenido del carrito */
+.centrado-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh; /* Altura mínima para centrar */
+    text-align: center;
+}
+
+/* Contenedor con fondo negro distorsionado */
+.foto-perfil-container {
+    width: 350px; /* Más grande que la imagen */
+    height: 350px; /* Más grande que la imagen */
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 25%, rgba(50, 50, 50, 0.5) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
+}
+
+/* Estilo de la imagen */
+.foto-perfil {
+    width: 80%; /* Más pequeña dentro del contenedor */
+    height: 80%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ligera solo para la imagen */
+}
+.carrito-llevo {
+    font-family: 'Arial', sans-serif; /* Fuente sencilla y moderna */
+    font-size: 1.3rem; /* Tamaño de letra más grande */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Color gris oscuro para legibilidad */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    margin: 10px 0; /* Espaciado superior e inferior */
 }

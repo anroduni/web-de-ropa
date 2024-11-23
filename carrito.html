@@ -15,17 +15,19 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2>Tu Carrito</h2>
-        <div id="carrito-container" class="grid-container">
-            <!-- Productos añadidos al carrito -->
+        <div id="carrito-container" class="centrado-contenido">
+            <div class="empty-cart">
+                <img src="assets/img/vacio-carrito-de-compras.png" alt="Carrito vacío" class="empty-cart-img">
+                <p>Tu carrito está vacío. ¡Agrega algunos productos!</p>
+            </div> 
+            <button id="checkout-button" class="button">Proceder al Pago</button>
         </div>
-        <button id="checkout-button" class="button">Proceder al Pago</button>
+       
     </main>
 
     <footer>

@@ -10,7 +10,6 @@ const productos = [
 ];
 
 // Función para cargar productos dinámicamente
-// Función para cargar productos dinámicamente
 function cargarProductos() {
     const secciones = {
         dama: document.getElementById("productos-dama"),
@@ -29,15 +28,15 @@ function cargarProductos() {
             </div>
         `;
 
-        secciones[producto.categoria].innerHTML += productoHTML;
+        if (secciones[producto.categoria]) {
+            secciones[producto.categoria].innerHTML += productoHTML;
+        }
     });
 }
 
-
-// Carrito de compras (vacío al inicio)
-let carrito = [];
-
+// Función para agregar productos al carrito
 function agregarAlCarrito(nombreProducto) {
+    // Encuentra el producto por nombre
     const producto = productos.find(p => p.nombre === nombreProducto);
 
     if (producto) {
@@ -58,7 +57,7 @@ function agregarAlCarrito(nombreProducto) {
     }
 }
 
-
+// Función para mostrar el carrito
 function mostrarCarrito() {
     const carritoContainer = document.getElementById("carrito-contenido");
     
@@ -70,18 +69,24 @@ function mostrarCarrito() {
     if (carrito.length === 0) {
         carritoContainer.innerHTML = "<p>El carrito está vacío.</p>";
     } else {
+        let total = 0;
         carrito.forEach((producto, index) => {
+            total += producto.precio;
             carritoContainer.innerHTML += `
-                <div class="carrito-item">
-                    <span>${producto.nombre}</span>
+                <div class="carrito-llevo">
+                <span>${producto.nombre}</span>
                     <span>$${producto.precio.toFixed(2)}</span>
                     <button onclick="eliminarDelCarrito(${index})">Eliminar</button>
                 </div>
             `;
         });
+
+        // Mostrar total
+        carritoContainer.innerHTML += `<h3>Total: $${total.toFixed(2)}</h3>`;
     }
 }
 
+// Función para eliminar un producto del carrito
 function eliminarDelCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito.splice(index, 1); // Elimina el producto por índice
@@ -92,5 +97,11 @@ function eliminarDelCarrito(index) {
     // Muestra el carrito actualizado
     mostrarCarrito();
 }
+
 // Cargar productos al cargar la página
 document.addEventListener("DOMContentLoaded", cargarProductos);
+mostrarCarrito();
+// Función para ir al carrito (opcional)
+function irAlCarrito() {
+    window.location.href = "/carrito.html"; // Cambia la URL a la página del carrito
+}
